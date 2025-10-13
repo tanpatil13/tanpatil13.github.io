@@ -97,7 +97,7 @@ const skills: Skill[] = [
 const experiences: Experience[] = [
   {
     title: "Research Intern (MSc Thesis Project)",
-    company: "CAMI, UCL Hawkes Institute",
+    company: "Computational Cancer Microstructure Imaging (CAMI) Group, UCL Hawkes Institute",
     period: "June 2025 - Present",
     location: "London, UK",
     responsibilities: [
@@ -109,7 +109,7 @@ const experiences: Experience[] = [
   },
   {
     title: "Senior Member of Technical Staff",
-    company: "Oracle Corporation",
+    company: "Oracle Corporation - OCI Logging Analytics",
     period: "September 2023 - September 2024",
     location: "Bengaluru, India",
     responsibilities: [
@@ -120,7 +120,7 @@ const experiences: Experience[] = [
   },
   {
     title: "Member of Technical Staff",
-    company: "Oracle Corporation",
+    company: "Oracle Corporation - OCI Logging Analytics",
     period: "July 2021 - August 2023",
     location: "Bengaluru, India",
     responsibilities: [
@@ -131,7 +131,7 @@ const experiences: Experience[] = [
   },
   {
     title: "Product Development Intern",
-    company: "Oracle Corporation",
+    company: "Oracle Corporation - Enterprise Manager Cloud Control (EMCC)",
     period: "May 2020 - June 2020",
     location: "Bengaluru, India",
     responsibilities: [
@@ -384,7 +384,7 @@ const Experience: React.FC = () => (
               </a>
             )}
           </h3>
-          <p className="text-cyan-700 font-medium">{exp.company}</p>
+          <p className="text-cyan-700 font-medium break-all">{exp.company}</p>
           <p className="text-gray-500 italic text-sm">{exp.period}</p>
           {exp.location && (<p className="text-gray-500 text-sm mb-3">{exp.location}</p>)}
           {!exp.location && <div className="mb-3" />}
