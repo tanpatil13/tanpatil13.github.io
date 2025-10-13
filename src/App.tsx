@@ -121,7 +121,7 @@ const experiences: Experience[] = [
   {
     title: "Member of Technical Staff",
     company: "Oracle Corporation",
-    period: "July 2021 - September 2023",
+    period: "July 2021 - August 2023",
     location: "Bengaluru, India",
     responsibilities: [
       "Independently led the automation and validation of OCI Marketplace integrations with Autonomous DB, IDCS, EBS, and CloudGuard, streamlining complex customer workflows and showcasing strong ownership",
