@@ -23,7 +23,7 @@ interface Education {
   period: string;
   location?: string;
   grade?: string;
-  coursework?: string;
+  coursework?: string[];
 }
 
 interface Project {
@@ -71,16 +71,20 @@ const skills: Skill[] = [
   { name: "Machine Learning", category: "AI/ML" },
   { name: "Deep Learning", category: "AI/ML" },
   { name: "PyTorch", category: "AI/ML" },
-  { name: "Scikit-Learn", category: "AI/ML" },
   { name: "LLMs", category: "AI/ML" },
   { name: "Hugging Face Transformers", category: "AI/ML" },
+  { name: "Scikit-Learn", category: "AI/ML" },
+  { name: "Numpy", category: "Data Analysis" },
+  { name: "Pandas", category: "Data Analysis" },
+  { name: "Matplotlib", category: "Data Analysis" },
+  { name: "Seaborn", category: "Data Analysis" },
   { name: "Git/GitHub", category: "Software Development" },
   { name: "Microservices", category: "Software Development" },
   { name: "REST APIs", category: "Software Development" },
   { name: "Docker", category: "Software Development" },
-  { name: "Oracle Cloud Infrastructure (OCI)", category: "Software Development" },
   { name: "CI/CD", category: "Software Development" },
   { name: "Agile", category: "Software Development" },
+  { name: "Oracle Cloud Infrastructure (OCI)", category: "Software Development" },
   { name: "Automation", category: "Software Development" },
   { name: "Python", category: "Programming Tools" },
   { name: "Java", category: "Programming Tools" },
@@ -146,15 +150,31 @@ const education: Education[] = [
   {
     degree: "Master of Science (MSc) in Artificial Intelligence for Biomedicine and Healthcare",
     institution: "University College London (UCL)",
+    location: "London, UK",
     period: "September 2024 - September 2025",
-    coursework: "Relevant coursework: Deep Representations and Learning, Artificial Intelligence for Biomedicine and Healthcare, Computational Modelling for Biomedical Imaging, Statistical Natural Language Processing, Applied Artificial Intelligence"
+    coursework: [
+      "Deep Representations and Learning",
+      "Artificial Intelligence for Biomedicine and Healthcare",
+      "Computational Modelling for Biomedical Imaging",
+      "Statistical Natural Language Processing",
+      "Probabilistic (Bayesian) Modelling",
+      "Applied Artificial Intelligence"
+    ]
   },
   {
     degree: "Bachelor of Technology (B.Tech) in Electrical Engineering",
     institution: "Indian Institute of Technology, Kanpur (IITK)",
+    location: "Kanpur, India",
     period: "July 2017 - June 2021",
-    grade: "Grade: Distinction",
-    coursework: "Relevant coursework: Data Mining and Knowledge Discovery, Data Structures and Algorithms, Probability and Statistics, Numerical Methods, Calculus, Linear Algebra"
+    grade: "Distinction",
+    coursework: [
+      "Data Mining and Knowledge Discovery",
+      "Data Structures and Algorithms",
+      "Probability and Statistics",
+      "Numerical Methods",
+      "Calculus",
+      "Linear Algebra"
+    ]
   }
 ];
 
@@ -412,9 +432,25 @@ const Education: React.FC = () => (
         <div key={index} className="border-l-4 border-cyan-800 pl-6">
           <h3 className="text-xl font-semibold text-gray-800">{edu.degree}</h3>
           <p className="text-cyan-700 font-medium">{edu.institution}</p>
-          <p className="text-gray-500 italic text-sm mb-2">{edu.period}</p>
-          {edu.grade && <p className="text-gray-700">{edu.grade}</p>}
-          {edu.coursework && <p className="text-gray-700">{edu.coursework}</p>}
+          <p className="text-gray-500 italic text-sm">{edu.period}</p>
+          {edu.location && (<p className="text-gray-500 text-sm mb-3">{edu.location}</p>)}
+          {!edu.location && <div className="mb-3" />}
+          {edu.grade && (
+            <p className="text-gray-700 mb-3">
+              <span className="font-bold">Grade:</span> {edu.grade}
+            </p>
+          )}
+          {edu.coursework && (
+            <div>
+              <p className="text-gray-700 font-semibold mb-2">Relevant Coursework:</p>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-1 ml-4 list-disc">
+                {edu.coursework.map((course, i) => (
+                  <li key={i} className="text-gray-700">{course}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/* <p className="text-gray-700">{edu.coursework}</p> */}
         </div>
       ))}
     </div>
